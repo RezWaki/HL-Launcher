@@ -7,7 +7,7 @@
 
 4.] Change start parameters (-d3d -16bpp -w 800 -h 600 -full -console)
 
-5.] Selection of texture type (user textures or gray)
+[! REMOVED !] 5.] Selection of texture type (user textures or gray)
 
 6.] All options now is in one configuration file
 
