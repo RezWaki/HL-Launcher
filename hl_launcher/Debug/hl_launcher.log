@@ -1,9 +1,8 @@
-﻿Построение начато 16.02.2019 0:05:48.
+﻿Построение начато 07.08.2019 21:25:23.
      1>Проект "C:\Users\Администратор\Documents\Visual Studio 2012\Projects\hl_launcher\hl_launcher\hl_launcher.vcxproj" в узле 2 (целевые объекты Rebuild).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /AIC:\Windows\Microsoft.NET\Framework\v2.0.50727\ /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /TP /FUC:\Windows\Microsoft.NET\Framework\v2.0.50727\mscorlib.dll /FUC:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Data.dll /FUC:\Windows\Microsoft.NET\Framework\v2.0.50727\System.dll /FUC:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Drawing.dll /FUC:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Windows.Forms.dll /FUC:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Xml.dll /analyze- /errorReport:prompt /d1clr:nostdlib MyForm.cpp
          MyForm.cpp
-     1>c:\users\администратор\documents\visual studio 2012\projects\hl_launcher\hl_launcher\MyForm.h(422): warning C4800: short: принудительно задано логическое значение "true" или "false" (предупреждение о производительности)
        ResourceCompile:
          C:\Program Files (x86)\Windows Kits\8.0\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\hl_launcher.res" hl_launcher.rc 
        Link:
@@ -14,4 +13,4 @@
 
 Построение успешно завершено.
 
-Затраченное время: 00:00:06.89
+Затраченное время: 00:00:03.07

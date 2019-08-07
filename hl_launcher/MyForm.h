@@ -52,7 +52,9 @@ namespace hl_launcher {
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::CheckBox^  checkBox1;
+	private: System::Windows::Forms::ComboBox^  comboBox2;
+	private: System::Windows::Forms::Label^  label11;
+
 
 
 	private: System::ComponentModel::IContainer^  components;
@@ -85,7 +87,8 @@ namespace hl_launcher {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->checkBox1 = (gcnew System::Windows::Forms::CheckBox());
+			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
@@ -237,7 +240,7 @@ namespace hl_launcher {
 			// 
 			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(193, 97);
+			this->button1->Location = System::Drawing::Point(193, 131);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 5;
@@ -250,7 +253,8 @@ namespace hl_launcher {
 			this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel2->Controls->Add(this->checkBox1);
+			this->panel2->Controls->Add(this->comboBox2);
+			this->panel2->Controls->Add(this->label11);
 			this->panel2->Controls->Add(this->label10);
 			this->panel2->Controls->Add(this->label9);
 			this->panel2->Controls->Add(this->label8);
@@ -263,20 +267,35 @@ namespace hl_launcher {
 			this->panel2->Size = System::Drawing::Size(455, 261);
 			this->panel2->TabIndex = 6;
 			// 
-			// checkBox1
+			// comboBox2
 			// 
-			this->checkBox1->AutoSize = true;
-			this->checkBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+			this->comboBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->comboBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->comboBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
-			this->checkBox1->ForeColor = System::Drawing::Color::White;
-			this->checkBox1->Location = System::Drawing::Point(288, 111);
-			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(162, 24);
-			this->checkBox1->TabIndex = 13;
-			this->checkBox1->Text = L"Enable gray textures";
-			this->checkBox1->UseVisualStyleBackColor = true;
-			this->checkBox1->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox1_CheckedChanged);
-			this->checkBox1->Click += gcnew System::EventHandler(this, &MyForm::checkBox1_Click);
+			this->comboBox2->ForeColor = System::Drawing::Color::White;
+			this->comboBox2->FormattingEnabled = true;
+			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) {L"Rofi\'s DLL", L"Standard", L"Lev DLL"});
+			this->comboBox2->Location = System::Drawing::Point(223, 97);
+			this->comboBox2->Name = L"comboBox2";
+			this->comboBox2->Size = System::Drawing::Size(119, 28);
+			this->comboBox2->TabIndex = 8;
+			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox2_SelectedIndexChanged);
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
+				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->label11->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
+				static_cast<System::Byte>(204)));
+			this->label11->ForeColor = System::Drawing::Color::White;
+			this->label11->Location = System::Drawing::Point(96, 100);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(120, 20);
+			this->label11->TabIndex = 7;
+			this->label11->Text = L"Current client.dll:";
 			// 
 			// label10
 			// 
@@ -323,9 +342,9 @@ namespace hl_launcher {
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^  >(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(0, 141);
+			this->pictureBox1->Location = System::Drawing::Point(0, 168);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(455, 119);
+			this->pictureBox1->Size = System::Drawing::Size(455, 92);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 9;
 			this->pictureBox1->TabStop = false;
@@ -392,6 +411,8 @@ namespace hl_launcher {
 				static_cast<System::Byte>(204)));
 		}
 
+		array<String^, 1>^ cfg, ^newcfg;
+
 		Point cursor_pos;
 	private: System::Void label2_MouseEnter(System::Object^  sender, System::EventArgs^  e) {
 				 label2->ForeColor = Color::Aqua;
@@ -416,15 +437,19 @@ private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  
 			 Application::Exit();
 		 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
-			 comboBox1->SelectedIndex = Convert::ToInt16(IO::File::ReadAllText("pr.dat"));
-			 textBox1->Text = IO::File::ReadAllText("mod.dat");
-			 textBox2->Text = IO::File::ReadAllText("params.dat");
-			 checkBox1->Checked = Convert::ToInt16( IO::File::ReadAllText("textures.dat") );
+			 newcfg = gcnew array<String^, 1>(16);
+			 cfg = IO::File::ReadAllLines("config.dat");
+			 comboBox1->SelectedIndex = Convert::ToInt16(cfg[2]);
+			 textBox1->Text = cfg[0];
+			 textBox2->Text = cfg[1];
+			 comboBox2->SelectedIndex = Convert::ToInt16(cfg[3]);
+			 //checkBox1->Checked = Convert::ToInt16( IO::File::ReadAllText("textures.dat") );
 		 }
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-			 IO::File::WriteAllText("pr.dat", comboBox1->SelectedIndex.ToString());
+			 newcfg[2] = comboBox1->SelectedIndex.ToString();
 			 IO::File::Delete("Core.dll");
 			 IO::File::Copy("valve\\Core_"+comboBox1->SelectedIndex.ToString()+".dll", "Core.dll");
+			 IO::File::WriteAllLines("config.dat", newcfg);
 		 }
 private: System::Void timer1_Tick(System::Object^  sender, System::EventArgs^  e) {
 			 cursor_pos = Windows::Forms::Cursor::Position;
@@ -481,16 +506,18 @@ private: System::Void label10_Click(System::Object^  sender, System::EventArgs^ 
 			 System::Diagnostics::Process::Start("https://www.facebook.com/groups/576122316113827");
 		 }
 private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 IO::File::WriteAllText("mod.dat", textBox1->Text);
+			 newcfg[0] = textBox1->Text;
+			 IO::File::WriteAllLines("config.dat", newcfg);
 		 }
 private: System::Void textBox2_TextChanged(System::Object^  sender, System::EventArgs^  e) {
-			 IO::File::WriteAllText("params.dat", textBox2->Text);
+			 newcfg[1] = textBox2->Text;
+			 IO::File::WriteAllLines("config.dat", newcfg);
 		 }
 private: System::Void checkBox1_CheckedChanged(System::Object^  sender, System::EventArgs^  e) {
 
 		 }
 private: System::Void checkBox1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 if(checkBox1->Checked){
+			 /*if(checkBox1->Checked){
 				 IO::File::WriteAllText("textures.dat", "1");
 				 IO::File::Move("valve\\halflife.wad", "valve\\halflife_old.wad");
 				 IO::File::Move("valve\\halflife_gray.wad", "valve\\halflife.wad");
@@ -499,7 +526,26 @@ private: System::Void checkBox1_Click(System::Object^  sender, System::EventArgs
 				 IO::File::WriteAllText("textures.dat", "0");
 				 IO::File::Move("valve\\halflife.wad", "valve\\halflife_gray.wad");
 				 IO::File::Move("valve\\halflife_old.wad", "valve\\halflife.wad");
+			 }*/
+		 }
+private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+			 newcfg[3] = comboBox2->SelectedIndex.ToString();
+			 IO::File::Delete("valve\\cl_dlls\\client.dll");
+			 switch( comboBox2->SelectedIndex) {
+				 case 0:
+					 //rofis
+					 IO::File::Copy("valve\\rofi.dll", "valve\\cl_dlls\\client.dll");
+				 break;
+				 case 1:
+					 //standard
+					 IO::File::Copy("valve\\default.dll", "valve\\cl_dlls\\client.dll");
+				 break;
+				 case 2:
+					 //lev
+					 IO::File::Copy("valve\\lev.dll", "valve\\cl_dlls\\client.dll");
+				 break;
 			 }
+			 IO::File::WriteAllLines("config.dat", newcfg);
 		 }
 };
 }
