@@ -415,6 +415,7 @@ namespace hl_launcher {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Half-Life .Av Launcher";
 			this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
+			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -459,7 +460,7 @@ private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  
 			 System::Diagnostics::Process::Start("https://vk.com/anvaclan");
 		 }
 private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
-			 Application::Exit();
+			 this->Hide();
 		 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 			 if( bFirstStart ) {
@@ -581,6 +582,10 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, Sy
 private: System::Void notifyIcon1_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
 			 this->Show();
 			 this->BringToFront();
+		 }
+private: System::Void MyForm_FormClosing(System::Object^  sender, System::Windows::Forms::FormClosingEventArgs^  e) {
+			 e->Cancel = TRUE;
+			 this->Hide();
 		 }
 };
 }
