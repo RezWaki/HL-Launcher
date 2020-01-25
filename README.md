@@ -1,3 +1,9 @@
+# v4.0 changes
+The main change of this version is now this launcher starts automatically
+with your Windows and hides into tray. Any time you can just make a double-click
+on the tray icon & click "Play" to play HL.
+The second change is no more .bat file generation used to start HL.
+
 # Features
 1.] Mutli-protocol: *46* (WON) *47* (2005 & later) *48* (Steam)
 
@@ -13,6 +19,4 @@
 
 # Installation
 
-Unpack all files from "valve" folder to your "valve" folder, ex.: *C:\Program Files (x86)\Half-Life\valve*
-
-Unpack all files from archive to your main game directory, ex.: *C:\Program Files (x86)\Half-Life*
+Start "setup.exe" as administrator
