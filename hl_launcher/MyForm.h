@@ -1,4 +1,8 @@
 #pragma once
+#include <stdio.h>
+
+char pCommand[256];
+BOOL bFirstStart = TRUE;
 
 namespace hl_launcher {
 
@@ -54,6 +58,7 @@ namespace hl_launcher {
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::ComboBox^  comboBox2;
 	private: System::Windows::Forms::Label^  label11;
+	private: System::Windows::Forms::NotifyIcon^  notifyIcon1;
 
 
 
@@ -95,6 +100,7 @@ namespace hl_launcher {
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->notifyIcon1 = (gcnew System::Windows::Forms::NotifyIcon(this->components));
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^  >(this->pictureBox1))->BeginInit();
@@ -132,6 +138,7 @@ namespace hl_launcher {
 			// label3
 			// 
 			this->label3->AutoSize = true;
+			this->label3->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->label3->ForeColor = System::Drawing::Color::White;
@@ -147,6 +154,7 @@ namespace hl_launcher {
 			// label2
 			// 
 			this->label2->AutoSize = true;
+			this->label2->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->label2->ForeColor = System::Drawing::Color::White;
@@ -191,6 +199,7 @@ namespace hl_launcher {
 			// 
 			this->comboBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
@@ -226,6 +235,7 @@ namespace hl_launcher {
 			// 
 			this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->textBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox1->ForeColor = System::Drawing::Color::White;
@@ -271,6 +281,7 @@ namespace hl_launcher {
 			// 
 			this->comboBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->comboBox2->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->comboBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
@@ -301,6 +312,7 @@ namespace hl_launcher {
 			// 
 			this->label10->AutoSize = true;
 			this->label10->BackColor = System::Drawing::Color::Peru;
+			this->label10->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label10->ForeColor = System::Drawing::Color::Blue;
 			this->label10->Location = System::Drawing::Point(373, 238);
 			this->label10->Name = L"label10";
@@ -315,6 +327,7 @@ namespace hl_launcher {
 			// 
 			this->label9->AutoSize = true;
 			this->label9->BackColor = System::Drawing::Color::Peru;
+			this->label9->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label9->ForeColor = System::Drawing::Color::Blue;
 			this->label9->Location = System::Drawing::Point(294, 238);
 			this->label9->Name = L"label9";
@@ -329,6 +342,7 @@ namespace hl_launcher {
 			// 
 			this->label8->AutoSize = true;
 			this->label8->BackColor = System::Drawing::Color::Peru;
+			this->label8->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->label8->ForeColor = System::Drawing::Color::Blue;
 			this->label8->Location = System::Drawing::Point(220, 238);
 			this->label8->Name = L"label8";
@@ -353,6 +367,7 @@ namespace hl_launcher {
 			// 
 			this->textBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(64)), static_cast<System::Int32>(static_cast<System::Byte>(64)), 
 				static_cast<System::Int32>(static_cast<System::Byte>(64)));
+			this->textBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 11.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point, 
 				static_cast<System::Byte>(204)));
 			this->textBox2->ForeColor = System::Drawing::Color::White;
@@ -375,6 +390,13 @@ namespace hl_launcher {
 			this->label7->TabIndex = 7;
 			this->label7->Text = L"Game parameters:";
 			// 
+			// notifyIcon1
+			// 
+			this->notifyIcon1->Icon = (cli::safe_cast<System::Drawing::Icon^  >(resources->GetObject(L"notifyIcon1.Icon")));
+			this->notifyIcon1->Text = L"Half-Life Launcher";
+			this->notifyIcon1->Visible = true;
+			this->notifyIcon1->MouseDoubleClick += gcnew System::Windows::Forms::MouseEventHandler(this, &MyForm::notifyIcon1_MouseDoubleClick);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -388,8 +410,11 @@ namespace hl_launcher {
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->panel2);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^  >(resources->GetObject(L"$this.Icon")));
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"Half-Life .Av Launcher";
+			this->WindowState = System::Windows::Forms::FormWindowState::Minimized;
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
@@ -437,13 +462,16 @@ private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  
 			 Application::Exit();
 		 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+			 if( bFirstStart ) {
+				 bFirstStart = FALSE;
+				 this->Hide();
+			 }
 			 newcfg = gcnew array<String^, 1>(16);
 			 cfg = IO::File::ReadAllLines("config.dat");
 			 comboBox1->SelectedIndex = Convert::ToInt16(cfg[2]);
 			 textBox1->Text = cfg[0];
 			 textBox2->Text = cfg[1];
 			 comboBox2->SelectedIndex = Convert::ToInt16(cfg[3]);
-			 //checkBox1->Checked = Convert::ToInt16( IO::File::ReadAllText("textures.dat") );
 		 }
 private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 			 newcfg[2] = comboBox1->SelectedIndex.ToString();
@@ -474,9 +502,12 @@ private: System::Void label4_MouseUp(System::Object^  sender, System::Windows::F
 			 timer1->Stop();
 		 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-			 IO::File::WriteAllText("_.bat", "hl.exe "+textBox2->Text+" -game "+textBox1->Text);
-			 system("_.bat");
-			 Application::Exit();
+			 const char* pGamedir = (const char*)(LPVOID)System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi( textBox1->Text );
+			 const char* pParams = (const char*)(LPVOID)System::Runtime::InteropServices::Marshal::StringToHGlobalAnsi( textBox2->Text );
+			 sprintf( pCommand, "hl.exe %s -game %s", pParams, pGamedir );
+			 this->Hide();
+			 system(pCommand);
+			 this->Hide();
 		 }
 private: System::Void label8_MouseEnter(System::Object^  sender, System::EventArgs^  e) {
 			 SetLinkStyle_(label8);
@@ -546,6 +577,10 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, Sy
 				 break;
 			 }
 			 IO::File::WriteAllLines("config.dat", newcfg);
+		 }
+private: System::Void notifyIcon1_MouseDoubleClick(System::Object^  sender, System::Windows::Forms::MouseEventArgs^  e) {
+			 this->Show();
+			 this->BringToFront();
 		 }
 };
 }

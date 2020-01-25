@@ -4,10 +4,9 @@
 
 using namespace System;
 using namespace System::Windows::Forms;
-using namespace hl_launcher;
-
+using namespace setup;
+[STAThread]
 INT WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int){
-	Application::EnableVisualStyles();
 	Application::Run( gcnew MyForm() );
 	return FALSE;
 }
