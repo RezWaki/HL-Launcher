@@ -17,6 +17,10 @@ The second change is no more .bat file generation used to start HL.
 
 6.] All options now is in one configuration file
 
+7.] No more .bat file generation used to start HL
+
+8.] Now launcher starts automatically with Windows & hides into tray
+
 # Installation
 
 Start "setup.exe" as administrator
